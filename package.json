@@ -1,5 +1,5 @@
 {
-  "name": "ms-converted",
+  "name": "ms-converter",
   "description": "Returns the time given to milliseconds, and is an integer that does not exceed the JavaScript MAXIMUM_SAFE_INTEGER.",
   "version": "1.0.0",
   "homepage": "https://github.com/PTsag100/ms-converter",
@@ -20,7 +20,9 @@
     "time",
     "integer",
     "seconds",
+    "sec",
     "milliseconds",
+    "ms",
     "days",
     "hours",
     "months",

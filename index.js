@@ -1,7 +1,7 @@
 function MsConverter() {}
 function isValidNumber(value) {
   const n = Math.abs(value);
-  if (!isNumber(n)) {
+  if (typeof n != "number") {
     throw new TypeError("expected a number");
   }
   if (!Number.isInteger(n)) {
@@ -17,27 +17,32 @@ MsConverter.prototype.seconds = (time = 1) => {
 };
 MsConverter.prototype.minutes = (time = 1) => {
   isValidNumber(time);
-  return time * new MsConverter().seconds(60);
+  return isSafeNumber(time * new MsConverter().seconds(60));
 };
 MsConverter.prototype.hours = (time = 1) => {
   isValidNumber(time);
-  return time * new MsConverter().minutes(60);
+  return isSafeNumber(time * new MsConverter().minutes(60));
 };
 MsConverter.prototype.days = (time = 1) => {
   isValidNumber(time);
-  return time * new MsConverter().hours(24);
+  return isSafeNumber(time * new MsConverter().hours(24));
 };
 MsConverter.prototype.weeks = (time = 1) => {
   isValidNumber(time);
-  return time * new MsConverter().days(7);
+  return isSafeNumber(time * new MsConverter().days(7));
 };
 MsConverter.prototype.months = (time = 1) => {
   isValidNumber(time);
-  return time * new MsConverter().days(30);
+  return isSafeNumber(time * new MsConverter().days(30));
 };
 MsConverter.prototype.years = (time = 1) => {
   isValidNumber(time);
-  return time * new MsConverter().days(365);
+  return isSafeNumber(time * new MsConverter().days(365));
 };
+
+function isSafeNumber(n) {
+  if (Number.isSafeInteger(n)) return n;
+  else throw new Error("value exceeds maximum safe integer");
+}
 
 module.exports = new MsConverter();
