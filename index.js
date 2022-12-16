@@ -1,4 +1,4 @@
-function MsConverter() {}
+function MsConversion() {}
 function isValidNumber(value) {
   const n = Math.abs(value);
   if (typeof n != "number") {
@@ -11,33 +11,33 @@ function isValidNumber(value) {
     throw new Error("value exceeds maximum safe integer");
   }
 }
-MsConverter.prototype.seconds = (time = 1) => {
+MsConversion.prototype.seconds = (time = 1) => {
   isValidNumber(time);
   return time * 1000;
 };
-MsConverter.prototype.minutes = (time = 1) => {
+MsConversion.prototype.minutes = (time = 1) => {
   isValidNumber(time);
-  return isSafeNumber(time * new MsConverter().seconds(60));
+  return isSafeNumber(time * new MsConversion().seconds(60));
 };
-MsConverter.prototype.hours = (time = 1) => {
+MsConversion.prototype.hours = (time = 1) => {
   isValidNumber(time);
-  return isSafeNumber(time * new MsConverter().minutes(60));
+  return isSafeNumber(time * new MsConversion().minutes(60));
 };
-MsConverter.prototype.days = (time = 1) => {
+MsConversion.prototype.days = (time = 1) => {
   isValidNumber(time);
-  return isSafeNumber(time * new MsConverter().hours(24));
+  return isSafeNumber(time * new MsConversion().hours(24));
 };
-MsConverter.prototype.weeks = (time = 1) => {
+MsConversion.prototype.weeks = (time = 1) => {
   isValidNumber(time);
-  return isSafeNumber(time * new MsConverter().days(7));
+  return isSafeNumber(time * new MsConversion().days(7));
 };
-MsConverter.prototype.months = (time = 1) => {
+MsConversion.prototype.months = (time = 1) => {
   isValidNumber(time);
-  return isSafeNumber(time * new MsConverter().days(30));
+  return isSafeNumber(time * new MsConversion().days(30));
 };
-MsConverter.prototype.years = (time = 1) => {
+MsConversion.prototype.years = (time = 1) => {
   isValidNumber(time);
-  return isSafeNumber(time * new MsConverter().days(365));
+  return isSafeNumber(time * new MsConversion().days(365));
 };
 
 function isSafeNumber(n) {
@@ -45,4 +45,4 @@ function isSafeNumber(n) {
   else throw new Error("value exceeds maximum safe integer");
 }
 
-module.exports = new MsConverter();
+module.exports = new MsConversion();
