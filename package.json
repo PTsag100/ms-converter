@@ -1,7 +1,7 @@
 {
   "name": "ms-conversion",
   "description": "Returns the time given to milliseconds, and is an integer that does not exceed the JavaScript MAXIMUM_SAFE_INTEGER.",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "homepage": "https://github.com/PTsag100/ms-converter",
   "author": "Panagiotis Tsagkouris (https://github.com/PTsag100)",
   "contributors": [
