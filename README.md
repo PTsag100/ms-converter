@@ -4,7 +4,7 @@ Returns the time given (minutes,hours, etc...) to milliseconds, and is an intege
 
 ## Usage
 
-# Some examples
+### Some examples
 
 ```js
 const msc = require("ms-conversion");
@@ -14,7 +14,7 @@ console.log(msc.minutes(5)); //=> 300.000
 console.log(msc.hours(1)); //=> 3.600.000
 ```
 
-# Using ms-conversion for cookies
+### Using ms-conversion for cookies
 
 ```js
 const { days, hours } = require("ms-conversion");
